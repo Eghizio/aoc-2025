@@ -9,6 +9,8 @@ export const toInt = (x: string) => parseInt(x, 10);
 
 export const ArrayOf = (length: number) => Array.from({ length }, (_, i) => i);
 
+export const sleep = (n: number) => new Promise((r) => setTimeout(r, n));
+
 export type Matrix<T = string> = T[][];
 
 type Mapper<Source, Target> = (
