@@ -5,6 +5,9 @@ export const loadInput = (file: string = "input"): string =>
 
 export const sum = (arr: number[]) => arr.reduce((acc, el) => acc + el, 0);
 
+export const mult = (arr: number[]) =>
+  arr.length === 0 ? 0 : arr.reduce((acc, x) => acc * x, 1);
+
 export const toInt = (x: string) => parseInt(x, 10);
 
 export const ArrayOf = (length: number) => Array.from({ length }, (_, i) => i);
@@ -16,6 +19,9 @@ export type Matrix<T = string> = T[][];
 type Mapper<Source, Target> = (
   point: [s: Source, x: number, y: number]
 ) => Target;
+
+export const transpose = <T>(arr: Matrix<T>): Matrix<T> =>
+  arr[0].map((_, colIndex) => arr.map((row) => row[colIndex]));
 
 export const toMatrix = <T = string>(
   input: string,
